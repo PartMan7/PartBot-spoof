@@ -46,4 +46,9 @@ case $1 in
     fi
     git push $SECRET_REPO secrets:main --force # Lease won't work here because we already updated the HEAD earlier
   ;;
+
+  *)
+    echo "No match found for $1"
+    exit 1
+  ;;
 esac
