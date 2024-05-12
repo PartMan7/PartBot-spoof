@@ -22,6 +22,7 @@ case $1 in
     fi
     git rebase FETCH_HEAD
     git push public main
+    git fetch origin main
   ;;
 
   secrets)
@@ -33,16 +34,17 @@ case $1 in
       exit 1
     fi
 
-    git fetch public main
-    git rebase public/main
     git fetch secret main
-    git rebase public/main secret/main
-    git rebase secret/main secrets
     if git log secret/main..@ --format='format:%s' | grep -vPq 'secrets?:'
     then
       echo Found a commit without "'secrets'" in the name\; failing publish... \(all commits must include the word "'secrets'"\)
       exit 1
     fi
+
+    git fetch public main
+    git rebase public/main
+    git rebase public/main secret/main
+    git rebase secret/main secrets
     git push secret secrets:main --force # Lease won't work here because we already updated the HEAD earlier
   ;;
 
