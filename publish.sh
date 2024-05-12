@@ -35,6 +35,8 @@ case $1 in
       exit 1
     fi
 
+    git fetch $PUBLIC_REPO main
+    git rebase FETCH_HEAD
     git fetch $SECRET_REPO main
     git rebase FETCH_HEAD
     if git log FETCH_HEAD..@ --format='format:%s' | grep -vPq 'secrets?:'
@@ -42,8 +44,6 @@ case $1 in
       echo Found a commit without "'secrets'" in the name\; failing publish... \(all commits must include the word "'secrets'"\)
       exit 1
     fi
-    git fetch $PUBLIC_REPO main
-    git rebase FETCH_HEAD
     git push $SECRET_REPO secrets:main --force # Lease won't work here because we already updated the HEAD earlier
   ;;
 esac
