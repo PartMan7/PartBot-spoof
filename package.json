@@ -4,9 +4,11 @@
   "description": "Secrets for PartBot!",
   "main": "src/index.ts",
   "scripts": {
-    "publish-public": "./publish.sh public",
-    "publish-secret": "./publish.sh secrets",
-    "test": "echo No tests added!"
+    "postinstall": "husky install",
+    "publish-public": "./scripts/publish.sh public",
+    "publish-secret": "./scripts/publish.sh secrets",
+    "test": "echo No tests added!",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
@@ -17,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/PartMan7/PartBot-spoof/issues"
   },
-  "homepage": "https://github.com/PartMan7/PartBot-spoof#readme"
+  "homepage": "https://github.com/PartMan7/PartBot-spoof#readme",
+  "devDependencies": {
+    "husky": "^9.0.11"
+  }
 }
