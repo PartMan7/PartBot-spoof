@@ -38,6 +38,7 @@ case $1 in
     if git log secret/main..@ --format='format:%s' | grep -vPq 'secrets?:'
     then
       echo Found a commit without "'secrets'" in the name\; failing publish... \(all commits must include the word "'secrets'"\)
+      git log secret/main..@ --format='format:%s'
       exit 1
     fi
 
