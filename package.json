@@ -1,0 +1,19 @@
+{
+  "name": "secrets",
+  "version": "0.1.0",
+  "description": "Secrets for PartBot!",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PartMan7/PartBot-spoof.git"
+  },
+  "author": "PartMan7",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PartMan7/PartBot-spoof/issues"
+  },
+  "homepage": "https://github.com/PartMan7/PartBot-spoof#readme"
+}
