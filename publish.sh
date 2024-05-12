@@ -44,6 +44,6 @@ case $1 in
     fi
     git fetch $PUBLIC_REPO main
     git rebase FETCH_HEAD
-    git push $SECRET_REPO main --force-with-lease
+    git push $SECRET_REPO secrets:main --force # Lease won't work here because we already updated the HEAD earlier
   ;;
 esac
