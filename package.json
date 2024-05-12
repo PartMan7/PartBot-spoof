@@ -5,7 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "publish-public": "./publish.sh public",
-    "publish-secret": "./publish.sh secret",
+    "publish-secret": "./publish.sh secrets",
     "test": "echo No tests added!"
   },
   "repository": {

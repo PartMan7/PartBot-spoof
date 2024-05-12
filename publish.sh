@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 GIT_BRANCH="$(git name-rev --name-only HEAD)"
 PUBLIC_REPO="https://github.com/PartMan7/PartBot-spoof.git"
 SECRET_REPO="https://github.com/PartMan7/PartBot-secrets.git"
@@ -26,6 +28,7 @@ case $1 in
     if git log FETCH_HEAD..@ --format='format:%s' | grep -vPq 'secrets?:'
     then
       echo Found a commit without "'secrets'" in the name\; failing publish... \(all commits must include the word "'secrets'"\)
+      exit 1
     fi
     git fetch $PUBLIC_REPO $GIT_BRANCH
     git rebase FETCH_HEAD
