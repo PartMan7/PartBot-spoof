@@ -4,7 +4,9 @@
   "description": "Secrets for PartBot!",
   "main": "src/index.ts",
   "scripts": {
-    "test": "test"
+    "publish-public": "./publish.sh public",
+    "publish-secret": "./publish.sh secret",
+    "test": "echo No tests added!"
   },
   "repository": {
     "type": "git",
