@@ -4,6 +4,8 @@ set -e
 
 GIT_BRANCH="$(git name-rev --name-only HEAD)"
 
+export SCRIPTED_GIT_PUSH=publish
+
 case $1 in
   public)
     echo Publishing to public repo...
